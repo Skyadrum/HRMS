@@ -1,0 +1,69 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="#">Listado de Personal</a>
+  </li>
+  <li class="breadcrumb-item active">Listado</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i>
+    Listado de personal
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      {% if not object_list %}
+      <h4>No hay empleados registrados</h4>
+      {% else  %}
+      <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Id Persona</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Fecha de Ingreso</th>
+            <th>Area</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for item in object_list %}
+          <tr>
+          <td>{{item.id_persona}}</td>
+          <td>{{item.nombre}}</td>
+          <td>{{item.apellido_paterno}} {{item.apellido_materno}}</td>
+          <td>{{item.fecha_ingreso}}</td>
+          <td>{{item.areas.nombre_area}}</td>
+          <td>
+            <div class="dropdown show">
+              <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Opciones
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="{% url 'personas:info_persona' item.id %}">Información de {{item.nombre}} {{item.apellido_paterno}}</a>
+                  <a class="dropdown-item">Asignar Vacaciones</a>
+                  <a class="dropdown-item" href="{% url 'personas:editar_persona' item.id %}">Editar</a>
+                  <a class="dropdown-item" href="{% url 'personas:eliminar_persona' item.id %}">Eliminar</a>
+                </div>
+              </div>
+            </div>
+          </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

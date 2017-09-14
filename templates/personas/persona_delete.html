@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block breadcrumb %}
+{% endblock %}
+
+{% block content %}
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-times"></i>
+    Eliminar Empleado
+  </div>
+  <div class="card-body">
+    <form method="post">
+      {% csrf_token %}
+      <div class="text-center">
+        <h3>¿Desea eleminar el registro de {{ object.nombre }} {{ object.apellido_paterno }}?</h3>
+        <br>
+        <button type="submit" class="btn btn-danger">SI, Eliminar</button>
+        <a class="btn btn-success" href="{% url 'personas:listado_persona' %}">Cancelar</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

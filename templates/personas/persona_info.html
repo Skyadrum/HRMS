@@ -1,0 +1,157 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="#">Infomración de personal</a>
+  </li>
+  <li class="breadcrumb-item active">Detalle</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-users"></i>
+    Detalle de personal
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-3">
+         <img class="card-img-top img-fluid img-thumbnail" width="250px" height="250px" src="{{personas.imagen.url}}">
+      </div>
+
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-3">
+            <p><b>Nombre:</b></p>
+          </div>
+          <div class="col-md-9">
+            <p>{{personas.nombre}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <p><b>Apellidos:</b></p>
+          </div>
+          <div class="col-md-9">
+            <p>{{personas.apellido_paterno}} {{personas.apellido_materno}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <p><b>Clave:</b></p>
+          </div>
+          <div class="col-md-9">
+            <p>{{personas.id_persona}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <p><b>Correo:</b></p>
+          </div>
+          <div class="col-md-9">
+            <p>{{personas.correo}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <p><b>Fecha de Ingreso:</b></p>
+          </div>
+          <div class="col-md-9">
+            <p>{{personas.fecha_ingreso}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <p><b>Cargo:</b></p>
+          </div>
+          <div class="col-md-9">
+            <p>{{personas.cargo}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <p><b>Area:</b></p>
+          </div>
+          <div class="col-md-9">
+            <p>{{personas.areas}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="card mb-3">
+    <div class="card-header">
+      <i class="fa fa-table"></i>
+      Detalle de vacaciones
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" width="100%" id="" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Fecha de Inicio</th>
+              <th>Días Tomados</th>
+              <th>Motivo</th>
+              <th>Observaciones</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>08/21/2017</td>
+              <td>5</td>
+              <td>Viaje</td>
+              <td>No hay observaciones</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3">
+    <div class="card-header">
+      <i class="fa fa-table"></i>
+      Detalle de permisos
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" width="100%" id="" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Fecha de Inicio</th>
+              <th>Días Tomados</th>
+              <th>Motivo</th>
+              <th>Observaciones</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>08/21/2017</td>
+              <td>5</td>
+              <td>Viaje</td>
+              <td>No hay observaciones</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

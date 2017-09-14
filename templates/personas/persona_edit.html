@@ -1,0 +1,152 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<div class="card mb-3">
+  {# <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt explicabo vero veritatis ab fugit? Excepturi, illum possimus? Sunt, nobis consequatur sapiente repellendus soluta sed corrupti doloremque adipisci non, officiis in?</span>#}
+  <div class="card-header">
+    <i class="fa fa-users"></i>
+    Formulario de altas
+  </div>
+  <div class="card-body">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- <div class="row">
+        <div class="form-group col-md-3">
+          {{form.nombre.label}}
+          {{form.nombre}}
+        </div>
+
+        <div class="form-group col-md-3">
+          {{form.apellido_paterno.label}}
+          {{form.apellido_paterno}}
+        </div>
+
+        <div class="form-group col-md-3">
+          {{form.apellido_materno.label}}
+          {{form.apellido_materno}}
+        </div>
+
+        <div class="form-group col-md-3">
+          {{form.sexo.label}}
+          {{form.sexo}}
+        </div>
+      </div>#}
+
+      {# <div class="row">
+        <div class="form-group col-md-3">
+          {{form.fecha_nacimiento.label}}
+          {{form.fecha_nacimiento}}
+        </div>
+
+        <div class="form-group col-md-3">
+          {{form.curp.label}}
+          {{form.curp}}
+        </div>
+
+        <div class="form-group col-md-3">
+          {{form.rfc.label}}
+          {{form.rfc}}
+        </div>
+      </div>#}
+
+      {# Domiciliarios #}
+      {# <div class="row">
+        <div class="form-group col-md-3">
+          {{form.calle.label}}
+          {{form.calle}}
+        </div>
+
+        <div class="form-group col-md-3">
+          {{form.numero_interior.label}}
+          {{form.numero_interior}}
+        </div>
+
+        <div class="form-group col-md-3">
+          {{form.numero_exterior.label}}
+          {{form.numero_exterior}}
+        </div>
+
+        <div class="form-group col-md-3">
+          {{form.colonia.label}}
+          {{form.colonia}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-3">
+          {{form.codigo_postal.label}}
+          {{form.codigo_postal}}
+        </div>
+
+        <div class="form-group col-md-3">
+          {{form.pais.label}}
+          {{form.pais}}
+        </div>
+
+        <div class="form-group col-md-3">
+          {{form.estado.label}}
+          {{form.estado}}
+        </div>
+
+        <div class="form-group col-md-3">
+          {{form.municipio.label}}
+          {{form.municipio}}
+        </div>
+      </div>#}
+
+      {# Contacto #}
+      {# <div class="row">
+        <div class="form-group col-md-3">
+          {{form.telefono.label}}
+          {{form.telefono}}
+        </div>
+
+        <div class="form-group col-md-3">
+          {{form.celular.label}}
+          {{form.celular}}
+        </div>
+
+        <div class="form-group col-md-3">
+          {{form.correo.label}}
+          {{form.correo}}
+        </div>
+      </div>#}
+
+      {# Puesto #}
+      {# <div class="row">
+        <div class="form-group col-md-3">
+          {{form.areas.label}}
+          {{form.areas}}
+        </div>
+
+        <div class="form-group col-md-3">
+          {{form.cargo.label}}
+          {{form.cargo}}
+        </div>
+
+        <div class="form-group col-md-3">
+          {{form.id_persona.label}}
+          {{form.id_persona}}
+        </div>
+
+        <div class="form-group col-md-3">
+          {{form.fecha_ingreso.label}}
+          {{form.fecha_ingreso}}
+        </div>
+      </div> -->
+
+      {{ form.as_p }}
+
+      <br>
+      <div class="row">
+        <div class="form-group col-md-4 ml-auto">
+          <button type="submit" class="btn btn-success btn-block">Guardar cambios</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

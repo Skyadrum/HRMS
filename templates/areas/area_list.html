@@ -1,0 +1,55 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="#">Areas</a>
+  </li>
+  <li class="breadcrumb-item active">Listado de areas</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-table"></i>
+    Listado de áreas
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      {% if not object_list %}
+      <h4>No hay empleados registrados</h4>
+      {% else  %}
+      <table class="table table-bordered" width="100%" id="" cellspacing="0">
+        <thead>
+          <tr>
+          <th>#</th>
+          <th>Id Áreas</th>
+          <th>Nombre del área</th>
+          <th>Descripción</th>
+          <th>Información</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for item in object_list %}
+          <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.clave_area}}</td>
+            <td>{{item.nombre_area}}</td>
+            <td>{{item.descripcion}}</td>
+            <td>
+              <a href="" class="btn btn-success">Personal</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

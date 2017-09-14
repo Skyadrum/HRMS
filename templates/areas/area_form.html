@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="#">Areas</a>
+  </li>
+  <li class="breadcrumb-item active">Nueva área</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="card mb-3">
+  {# <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt explicabo vero veritatis ab fugit? Excepturi, illum possimus? Sunt, nobis consequatur sapiente repellendus soluta sed corrupti doloremque adipisci non, officiis in?</span>#}
+  <div class="card-header">
+    <i class="fa fa-sitemap"></i>
+    Nueva área
+  </div>
+  <div class="card-body">
+    <form method="post" class="form-group">
+      {% csrf_token %}
+
+      {{ form.as_p }}
+
+      <br>
+      <div class="row">
+        <div class="form-group col-md-4 ml-auto">
+          <button type="submit" class="btn btn-success btn-block">Crear área</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
