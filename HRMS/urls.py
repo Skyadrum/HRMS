@@ -27,6 +27,7 @@ urlpatterns = [
     # url(r'^accounts/login/', login, {'template_name':'index.html'}, name='login'),
     url(r'^personas/', include('apps.personas.urls', namespace='personas')),
     url(r'^areas/', include('apps.areas.urls', namespace='areas')),
+    url(r'^vacaciones/', include('apps.vacaciones.urls', namespace='vacaciones')),
 ]
 
 if settings.DEBUG is True:

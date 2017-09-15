@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="#">Permisos</a>
+  </li>
+  <li class="breadcrumb-item active">Solicitud de permisos</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fa fa-users"></i>
+    Formulario de vacaciones
+  </div>
+  <div class="card-body">
+    <form method="post">
+      {% csrf_token %}
+
+      <div class="row">
+        <div class="form-group col-md-6">
+          {{permisos.fecha_inicio.label}}
+          {{permisos.fecha_inicio}}
+        </div>
+
+        <div class="form-group col-md-6">
+          {{permisos.dias_tomados.label}}
+          {{permisos.dias_tomados}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6">
+          {{permisos.tipo.label}}
+          {{permisos.tipo}}
+        </div>
+
+        <div class="form-group col-md-6">
+          {{permisos.observaciones.label}}
+          {{permisos.observaciones}}
+        </div>
+      </div>
+
+      <div class="row" hidden>
+        <div class="form-group col-md-6" >
+          {{permisos.id_solicitante.label}}
+          <input type="text" name="id_solicitante" value="{{personas.id}}" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-4 ml-auto">
+          <button type="submit" class="btn btn-success btn-block">Asignar vacaciones</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

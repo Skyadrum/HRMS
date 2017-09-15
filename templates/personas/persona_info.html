@@ -99,6 +99,9 @@
     </div>
 
     <div class="card-body">
+      {% if not vacaciones %}
+      <h4>No hay solicitudes de vacaciones</h4>
+      {% else %}
       <div class="table-responsive">
         <table class="table table-bordered" width="100%" id="" cellspacing="0">
           <thead>
@@ -111,15 +114,18 @@
           </thead>
 
           <tbody>
+            {% for items in vacaciones %}
             <tr>
-              <td>08/21/2017</td>
-              <td>5</td>
-              <td>Viaje</td>
-              <td>No hay observaciones</td>
+              <td>{{items.fecha_inicio}}</td>
+              <td>{{items.dias_tomados}}</td>
+              <td>{{items.razon}}</td>
+              <td>{{items.observaciones}}</td>
             </tr>
+            {% endfor %}
           </tbody>
         </table>
       </div>
+      {% endif %}
     </div>
   </div>
 
@@ -130,27 +136,33 @@
     </div>
 
     <div class="card-body">
+      {% if not permisos %}
+      <h4>No se han solicitado permisos</h4>
+      {% else %}
       <div class="table-responsive">
         <table class="table table-bordered" width="100%" id="" cellspacing="0">
           <thead>
             <tr>
+              <th>Tipo</th>
               <th>Fecha de Inicio</th>
               <th>Días Tomados</th>
-              <th>Motivo</th>
               <th>Observaciones</th>
             </tr>
           </thead>
 
           <tbody>
             <tr>
-              <td>08/21/2017</td>
-              <td>5</td>
-              <td>Viaje</td>
-              <td>No hay observaciones</td>
+              {% for items in permisos %}
+              <td>{{items.tipo}}</td>
+              <td>{{items.fecha_inicio}}</td>
+              <td>{{items.dias_tomados}}</td>
+              <td>{{items.observaciones}}</td>
+              {% endfor %}
             </tr>
           </tbody>
         </table>
       </div>
+      {% endif %}
     </div>
   </div>
 </div>

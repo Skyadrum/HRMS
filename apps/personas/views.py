@@ -10,7 +10,7 @@ from django.shortcuts import render
 from apps.personas.models import Persona
 from apps.personas.forms import PersonaForm
 
-# from apps.vacaciones.models import Vacaciones
+from apps.vacaciones.models import Vacaciones, Permisos
 
 # Create your views here.
 #Clases
@@ -59,15 +59,17 @@ class PersonaDelete(DeleteView):
     success_url = reverse_lazy('personas:listado_persona')
 
 #Funciones
-
-def PersonaInfo(request, pk):
-    personas = Persona.objects.get(id=pk)
-    context = {'personas':personas}
-    return render(request, 'personas/persona_info.html', context)
-
 def PersonaInicio(request):
     context = {}
     return render(request, 'personas/persona_inicio.html', context)
+
+def PersonaInfo(request, pk):
+    personas = Persona.objects.get(id=pk)
+    vacaciones = Vacaciones.objects.all().filter(id_solicitante=pk)
+    permisos = Permisos.objects.all().filter(id_solicitante=pk)
+    context = {'personas':personas, 'vacaciones':vacaciones, 'permisos':permisos}
+    return render(request, 'personas/persona_info.html', context)
+
 
 # def PersonaVacaciones(request, pk):
 #     vacaciones = Vacaciones.objects.distinct().filter(id_solicitante=pk)
