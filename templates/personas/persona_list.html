@@ -53,12 +53,26 @@
                   <a class="dropdown-item" href="{% url 'personas:info_persona' item.id %}">Información de {{item.nombre}} {{item.apellido_paterno}}</a>
                   <a class="dropdown-item" href="{% url 'vacaciones:asignar_vacaciones' item.id %}">Asignar Vacaciones</a>
                   <a class="dropdown-item" href="{% url 'vacaciones:asignar_permisos' item.id %}">Asignar Permisos</a>
+                  <a class="dropdown-item" href="{% url 'personas:persona_formato' item.id %}">Impresión de Contrato</a>
                   <a class="dropdown-item" href="{% url 'personas:editar_persona' item.id %}">Editar</a>
                   <a class="dropdown-item" href="{% url 'personas:eliminar_persona' item.id %}">Eliminar</a>
                 </div>
               </div>
             </div>
           </td>
+          <td>
+            <div class="dropdown show">
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Formatos
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="{% url 'personas:persona_formato' item.id %}">Formato de alta</a>
+                </div>
+              </div>
+            </div>
+          </td>
+
           </tr>
           {% endfor %}
         </tbody>

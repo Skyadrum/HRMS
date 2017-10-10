@@ -51,4 +51,11 @@ class Persona(models.Model):
 
         return (today.year - ingreso.year)*10
 
+    def __get__antiguedad(self):
+        today = datetime.date.today()
+        ingreso = self.fecha_ingreso
+
+        return (today.year - ingreso.year)
+
     vacaciones = property(__get__dias)
+    antiguedad = property(__get__antiguedad)

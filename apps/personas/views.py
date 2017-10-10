@@ -2,10 +2,30 @@
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
-from django.http import HttpResponseRedirect
+import pdfkit
+from django.template.loader import render_to_string
+
+from django.shortcuts import render
+from io import BytesIO
+
+from reportlab.pdfgen import canvas
+
+from django.http import HttpResponse
+from django.views.generic import ListView
+from reportlab.platypus import SimpleDocTemplate, Paragraph, TableStyle
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import Table
+
+
+# import pdfkit
+# from django.template.loader import render_to_string
+
+# from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import render
+# from django.shortcuts import render
 
 from apps.personas.models import Persona
 from apps.personas.forms import PersonaForm
@@ -71,8 +91,13 @@ def PersonaInfo(request, pk):
     return render(request, 'personas/persona_info.html', context)
 
 
-# def PersonaVacaciones(request, pk):
-#     vacaciones = Vacaciones.objects.distinct().filter(id_solicitante=pk)
-#     template = 'personas/persona_detail.html'
-#     context = {'vacaciones':vacaciones }
-#     return render(request, template, context)
+def PersonaFormato(request, pk):
+    personas = Persona.objects.all().filter(id=pk)
+    rendered = render_to_string('formatos/formato_alta.html', {'personas':personas})
+    # Create a URL of our project and go to the template route
+    pdf = pdfkit.from_string(rendered, False)
+    # Generate download
+    response = HttpResponse(pdf, content_type='application/pdf')
+    # response['Content-Disposition'] = 'attachment; filename="ourcodeworld.pdf"'
+
+    return response

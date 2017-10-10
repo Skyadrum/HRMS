@@ -143,9 +143,9 @@
         <table class="table table-bordered" width="100%" id="" cellspacing="0">
           <thead>
             <tr>
-              <th>Tipo</th>
               <th>Fecha de Inicio</th>
               <th>Días Tomados</th>
+              <th>Tipo</th>
               <th>Observaciones</th>
             </tr>
           </thead>
@@ -153,9 +153,9 @@
           <tbody>
             <tr>
               {% for items in permisos %}
-              <td>{{items.tipo}}</td>
               <td>{{items.fecha_inicio}}</td>
               <td>{{items.dias_tomados}}</td>
+              <td>{{items.tipo}}</td>
               <td>{{items.observaciones}}</td>
               {% endfor %}
             </tr>
