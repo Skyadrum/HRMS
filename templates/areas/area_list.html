@@ -42,7 +42,7 @@
             <td>{{item.nombre_area}}</td>
             <td>{{item.descripcion}}</td>
             <td>
-              <a href="" class="btn btn-success">Personal</a>
+              <a href="{% url 'areas:persona_areas' item.id %}" class="btn btn-success">Personal</a>
             </td>
           </tr>
           {% endfor %}

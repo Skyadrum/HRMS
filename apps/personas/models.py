@@ -38,6 +38,11 @@ class Persona(models.Model):
     id_persona = models.CharField(max_length=13)
     fecha_ingreso = models.DateField()
     activo = models.IntegerField(default=1, editable=False)
+    #datos baja
+    # fecha_baja = models.DateField(null=True, blank=True)
+    # motivo_baja = models.CharField(max_length=40, null=True, blank=True)
+    # observaciones = models.CharField(max_length=40, null=True, blank=True)
+
     #llaves foraneas
     areas = models.ForeignKey(Area, blank=True, null=True)
     cargo = models.CharField(max_length=75)

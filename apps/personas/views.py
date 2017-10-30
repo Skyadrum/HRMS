@@ -18,10 +18,6 @@ from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import Table
 
-
-# import pdfkit
-# from django.template.loader import render_to_string
-
 # from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
@@ -94,6 +90,18 @@ def PersonaInfo(request, pk):
 def PersonaFormato(request, pk):
     personas = Persona.objects.all().filter(id=pk)
     rendered = render_to_string('formatos/formato_alta.html', {'personas':personas})
+    # Create a URL of our project and go to the template route
+    pdf = pdfkit.from_string(rendered, False)
+    # Generate download
+    response = HttpResponse(pdf, content_type='application/pdf')
+    # response['Content-Disposition'] = 'attachment; filename="ourcodeworld.pdf"'
+
+    return response
+
+def PersonaVacacionesHist(request, pk):
+    vacaciones = Vacaciones.objects.all().filter(id_solicitante=pk)
+    personas = Persona.objects.all().filter(id=pk)
+    rendered = render_to_string('formatos/vacaciones_hist.html', {'personas':personas, 'vacaciones':vacaciones})
     # Create a URL of our project and go to the template route
     pdf = pdfkit.from_string(rendered, False)
     # Generate download

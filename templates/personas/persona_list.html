@@ -32,6 +32,7 @@
             <th>Fecha de Ingreso</th>
             <th>Area</th>
             <th>Opciones</th>
+            <th>Formatos</th>
           </tr>
         </thead>
 
@@ -52,8 +53,7 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <a class="dropdown-item" href="{% url 'personas:info_persona' item.id %}">Información de {{item.nombre}} {{item.apellido_paterno}}</a>
                   <a class="dropdown-item" href="{% url 'vacaciones:asignar_vacaciones' item.id %}">Asignar Vacaciones</a>
-                  <a class="dropdown-item" href="{% url 'vacaciones:asignar_permisos' item.id %}">Asignar Permisos</a>
-                  <a class="dropdown-item" href="{% url 'personas:persona_formato' item.id %}">Impresión de Contrato</a>
+                  <!--<a class="dropdown-item" href="{% url 'vacaciones:asignar_permisos' item.id %}">Asignar Permisos</a> -->
                   <a class="dropdown-item" href="{% url 'personas:editar_persona' item.id %}">Editar</a>
                   <a class="dropdown-item" href="{% url 'personas:eliminar_persona' item.id %}">Eliminar</a>
                 </div>
@@ -68,6 +68,10 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <a class="dropdown-item" href="{% url 'personas:persona_formato' item.id %}">Formato de alta</a>
+                  <a class="dropdown-item" href="">Formato de baja</a>
+                  <a class="dropdown-item" href="{% url 'vacaciones:vacaciones_hist' item.id %}">Historial de vacaciones</a>
+                  <a class="dropdown-item" href="{% url 'vacaciones:permisos_hist' item.id %}">Historial de permisos</a>
+
                 </div>
               </div>
             </div>
