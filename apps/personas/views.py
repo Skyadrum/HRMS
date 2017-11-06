@@ -10,7 +10,7 @@ from io import BytesIO
 
 from reportlab.pdfgen import canvas
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView
 from reportlab.platypus import SimpleDocTemplate, Paragraph, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet
@@ -18,7 +18,6 @@ from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import Table
 
-# from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 # from django.shortcuts import render
@@ -41,6 +40,19 @@ class PersonaCreate(CreateView):
 class PersonaList(ListView):
     model = Persona
     template_name = 'personas/persona_list.html'
+
+    def get_queryset(self):
+        queryset = super(PersonaList, self).get_queryset()
+        return queryset.filter(activo='Activo')
+
+
+class PersonaListInactive(ListView):
+    model = Persona
+    template_name = 'personas/persona_baja_list.html'
+
+    def get_queryset(self):
+        queryset = super(PersonaListInactive, self).get_queryset()
+        return queryset.filter(activo='Inactivo')
 
 
 class PersonaUpdate(UpdateView):
@@ -69,10 +81,42 @@ class PersonaUpdate(UpdateView):
         else:
             return HttpResponseRedirect(self.get_success_url())
 
-class PersonaDelete(DeleteView):
+class PersonaDelete(UpdateView):
     model = Persona
+    form_class = PersonaForm
     template_name = 'personas/persona_delete.html'
     success_url = reverse_lazy('personas:listado_persona')
+
+    def get_context_data(self, **kwargs):
+        context = super(PersonaDelete, self).get_context_data(**kwargs)
+        pk = self.kwargs.get('pk',0)
+        persona = self.model.objects.get(id=pk)
+        if 'form' not in context:
+            context['form'] = self.form_class()
+        context['id'] = pk
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object
+        id_personas = kwargs['pk']
+        personas = self.model.objects.get(id=id_personas)
+        form = self.form_class(request.POST, instance=personas)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(self.get_success_url())
+        else:
+            return HttpResponseRedirect(self.get_success_url())
+
+def PersonaInactivePdf(request):
+    personas = Persona.objects.all().filter(activo='Inactivo')
+    rendered = render_to_string('formatos/persona_bajas.html', {'personas':personas})
+    # Create a URL of our project and go to the template route
+    pdf = pdfkit.from_string(rendered, False)
+    # Generate download
+    response = HttpResponse(pdf, content_type='application/pdf')
+    # response['Content-Disposition'] = 'attachment; filename="ourcodeworld.pdf"'
+
+    return response
 
 #Funciones
 def PersonaInicio(request):

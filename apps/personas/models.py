@@ -11,6 +11,8 @@ import datetime
 
 class Persona(models.Model):
     opciones = [('masculino', 'Masculino'), ('femenino', 'Femenino')]
+    bajas = [('Renuncia', 'Renuncia'), ('Despido', 'Despido'), ('Jubilación', 'Jubilacion')]
+    status = [('Activo', 'Activo'), ('Inactivo', 'Inactivo')]
 
     imagen = models.ImageField(upload_to='usr/', blank=True, null=True)
     nombre = models.CharField(max_length=30)
@@ -37,11 +39,11 @@ class Persona(models.Model):
     datos_adicionales = models.TextField(blank=True, null=True)
     id_persona = models.CharField(max_length=13)
     fecha_ingreso = models.DateField()
-    activo = models.IntegerField(default=1, editable=False)
+    activo = models.CharField(max_length = 40, choices=status, default='Activo')
     #datos baja
-    # fecha_baja = models.DateField(null=True, blank=True)
-    # motivo_baja = models.CharField(max_length=40, null=True, blank=True)
-    # observaciones = models.CharField(max_length=40, null=True, blank=True)
+    fecha_baja = models.DateField(null=True, blank=True)
+    motivo_baja = models.CharField(max_length=40, null=True, blank=True, choices=bajas)
+    observaciones = models.CharField(max_length=40, null=True, blank=True)
 
     #llaves foraneas
     areas = models.ForeignKey(Area, blank=True, null=True)

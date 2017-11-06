@@ -1,0 +1,55 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="#">Listados</a>
+  </li>
+  <li class="breadcrumb-item active">Historial de Bajas</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="card mb-3">
+  <div class="card-header row">
+    <div class="col-md-6"><i class="fa fa-table"></i>Listado de personal</div>
+    <div class="col-md-6 offset-md-6"><i class="fa fa-file-pdf-o" aria-hidden="true"></i><a href="{% url 'personas:baja_list' %}"> Exportar a PDF</a></span></div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      {% if not object_list %}
+      <h4>No hay empleados registrados</h4>
+      {% else  %}
+      <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Id Persona</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Fecha de Ingreso</th>
+            <th>Fecha de Baja</th>
+            <th>Estatus</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for item in object_list %}
+          <tr>
+            <td>{{item.id_persona}}</td>
+            <td>{{item.nombre}}</td>
+            <td>{{item.apellido_paterno}} {{item.apellido_materno}}</td>
+            <td>{{item.fecha_ingreso}}</td>
+            <td>{{item.fecha_baja}}</td>
+            <td>{{item.activo}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -15,9 +15,30 @@
   <div class="card-body">
     <form method="post">
       {% csrf_token %}
-      <div class="text-center">
-        <h3>¿Desea eleminar el registro de {{ object.nombre }} {{ object.apellido_paterno }}?</h3>
-        <br>
+      <div>
+        <div class="form-group" hidden>
+          {{form.as_p}}
+        </div>
+
+        <div class="form-group">
+          {{form.fecha_baja.label}}
+          {{form.fecha_baja}}
+        </div>
+
+        <div class="form-group">
+          {{form.motivo_baja.label}}
+          {{form.motivo_baja}}
+        </div>
+
+        <div class="form-group">
+          {{form.observaciones.label}}
+          {{form.observaciones}}
+        </div>
+
+        <div class="form-group">
+          {{form.activo.label}}
+          {{form.activo}}
+        </div>
         <button type="submit" class="btn btn-danger">SI, Eliminar</button>
         <a class="btn btn-success" href="{% url 'personas:listado_persona' %}">Cancelar</a>
       </div>

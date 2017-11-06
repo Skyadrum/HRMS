@@ -13,132 +13,133 @@
   <div class="card-body">
     <form method="post" class="form-group" enctype="multipart/form-data">
       {% csrf_token %}
-      <!-- <div class="row">
-        <div class="form-group col-md-3">
-          {{form.nombre.label}}
-          {{form.nombre}}
-        </div>
 
-        <div class="form-group col-md-3">
-          {{form.apellido_paterno.label}}
-          {{form.apellido_paterno}}
-        </div>
-
-        <div class="form-group col-md-3">
-          {{form.apellido_materno.label}}
-          {{form.apellido_materno}}
-        </div>
-
-        <div class="form-group col-md-3">
-          {{form.sexo.label}}
-          {{form.sexo}}
-        </div>
-      </div>#}
-
-      {# <div class="row">
-        <div class="form-group col-md-3">
-          {{form.fecha_nacimiento.label}}
-          {{form.fecha_nacimiento}}
-        </div>
-
-        <div class="form-group col-md-3">
-          {{form.curp.label}}
-          {{form.curp}}
-        </div>
-
-        <div class="form-group col-md-3">
-          {{form.rfc.label}}
-          {{form.rfc}}
-        </div>
-      </div>#}
-
-      {# Domiciliarios #}
-      {# <div class="row">
-        <div class="form-group col-md-3">
-          {{form.calle.label}}
-          {{form.calle}}
-        </div>
-
-        <div class="form-group col-md-3">
-          {{form.numero_interior.label}}
-          {{form.numero_interior}}
-        </div>
-
-        <div class="form-group col-md-3">
-          {{form.numero_exterior.label}}
-          {{form.numero_exterior}}
-        </div>
-
-        <div class="form-group col-md-3">
-          {{form.colonia.label}}
-          {{form.colonia}}
-        </div>
+      <div class="form-group">
+        {{form.imagen.label}}
+        {{form.imagen}}
       </div>
 
-      <div class="row">
-        <div class="form-group col-md-3">
-          {{form.codigo_postal.label}}
-          {{form.codigo_postal}}
-        </div>
+      <div class="form-group">
+        {{form.nombre.label}}
+        {{form.nombre}}
+      </div>
 
-        <div class="form-group col-md-3">
-          {{form.pais.label}}
-          {{form.pais}}
-        </div>
+      <div class="form-group">
+        {{form.apellido_paterno.label}}
+        {{form.apellido_paterno}}
+      </div>
 
-        <div class="form-group col-md-3">
-          {{form.estado.label}}
-          {{form.estado}}
-        </div>
+      <div class="form-group">
+        {{form.apellido_materno.label}}
+        {{form.apellido_materno}}
+      </div>
 
-        <div class="form-group col-md-3">
-          {{form.municipio.label}}
-          {{form.municipio}}
-        </div>
-      </div>#}
+      <div class="form-group">
+        {{form.fecha_nacimiento.label}}
+        {{form.fecha_nacimiento}}
+      </div>
 
-      {# Contacto #}
-      {# <div class="row">
-        <div class="form-group col-md-3">
-          {{form.telefono.label}}
-          {{form.telefono}}
-        </div>
+      <div class="form-group">
+        {{form.curp.label}}
+        {{form.curp}}
+      </div>
 
-        <div class="form-group col-md-3">
-          {{form.celular.label}}
-          {{form.celular}}
-        </div>
+      <div class="form-group">
+        {{form.rfc.label}}
+        {{form.rfc}}
+      </div>
 
-        <div class="form-group col-md-3">
-          {{form.correo.label}}
-          {{form.correo}}
-        </div>
-      </div>#}
+      <div class="form-group">
+        {{form.sexo.label}}
+        {{form.sexo}}
+      </div>
 
-      {# Puesto #}
-      {# <div class="row">
-        <div class="form-group col-md-3">
-          {{form.areas.label}}
-          {{form.areas}}
-        </div>
+      <div class="form-group">
+        {{form.calle.label}}
+        {{form.calle}}
+      </div>
 
-        <div class="form-group col-md-3">
-          {{form.cargo.label}}
-          {{form.cargo}}
-        </div>
+      <div class="form-group">
+        {{form.numero_interior.label}}
+        {{form.numero_interior}}
+      </div>
 
-        <div class="form-group col-md-3">
-          {{form.id_persona.label}}
-          {{form.id_persona}}
-        </div>
+      <div class="form-group">
+        {{form.numero_exterior.label}}
+        {{form.numero_exterior}}
+      </div>
 
-        <div class="form-group col-md-3">
-          {{form.fecha_ingreso.label}}
-          {{form.fecha_ingreso}}
-        </div>
-      </div> -->
+      <div class="form-group">
+        {{form.colonia.label}}
+        {{form.colonia}}
+      </div>
 
-      {{ form.as_p }}
+      <div class="form-group">
+        {{form.codigo_postal.label}}
+        {{form.codigo_postal}}
+      </div>
+
+      <div class="form-group">
+        {{form.pais.label}}
+        {{form.pais}}
+      </div>
+
+      <div class="form-group">
+        {{form.estado.label}}
+        {{form.estado}}
+      </div>
+
+      <div class="form-group">
+        {{form.municipio.label}}
+        {{form.municipio}}
+      </div>
+
+      <div class="form-group">
+        {{form.telefono.label}}
+        {{form.telefono}}
+      </div>
+
+      <div class="form-group">
+        {{form.celular.label}}
+        {{form.celular}}
+      </div>
+
+      <div class="form-group">
+        {{form.correo.label}}
+        {{form.correo}}
+      </div>
+
+      <div class="form-group">
+        {{form.datos_adicionales.label}}
+        {{form.datos_adicionales}}
+      </div>
+
+      <div class="form-group">
+        {{form.id_persona.label}}
+        {{form.id_persona}}
+      </div>
+
+      <div class="form-group">
+        {{form.fecha_ingreso.label}}
+        {{form.fecha_ingreso}}
+      </div>
+
+      <div class="form-group" hidden>
+        {{form.activo.label}}
+        {{form.activo}}
+      </div>
+
+      <div class="form-group">
+        {{form.areas.label}}
+        {{form.areas}}
+      </div>
+
+      <div class="form-group">
+        {{form.cargo.label}}
+        {{form.cargo}}
+      </div>
+
+      <!-- {{ form.as_p }} -->
 
       <br>
       <div class="row">

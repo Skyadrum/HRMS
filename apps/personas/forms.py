@@ -34,6 +34,10 @@ class PersonaForm(forms.ModelForm):
             'cargo',
             'fecha_ingreso',
             'id_persona',
+            'fecha_baja',
+            'motivo_baja',
+            'observaciones',
+            'activo',
         ]
 
         labels = {
@@ -61,6 +65,10 @@ class PersonaForm(forms.ModelForm):
             'cargo':'Cargo',
             'fecha_ingreso':'Fecha de Ingreso',
             'id_persona':'Id Empleado',
+            'fecha_baja': 'Fecha de Baja',
+            'motivo_baja': 'Motivo de Baja',
+            'observaciones': 'Observaciones',
+            'activo': 'Estatus',
         }
 
         widgets = {
@@ -88,4 +96,8 @@ class PersonaForm(forms.ModelForm):
             'cargo':forms.TextInput(attrs={'class':'form-control'}),
             'fecha_ingreso':forms.TextInput(attrs={'class':'form-control'}),
             'id_persona': forms.TextInput(attrs={'class':'form-control'}),
+            'fecha_baja': forms.TextInput(attrs={'class':'form-control'}),
+            'motivo_baja': forms.Select(attrs={'class':'form-control'}),
+            'observaciones': forms.Textarea(attrs={'class':'form-control'}),
+            'activo': forms.Select(attrs={'class':'form-control'}),
         }

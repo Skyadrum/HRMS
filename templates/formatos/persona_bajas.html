@@ -1,0 +1,141 @@
+{# /home/skyadrum/Documents/Projects/Django/HRMS/staticfiles/img/django.png #}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <style>
+      .header{
+        margin-top: 2.5%;
+      }
+
+      .one {
+        margin: auto;
+        margin-top: 1.5%;
+      }
+
+      .two {
+        background: #000;
+        color: #fff;
+        font-size: 25px;
+      }
+
+      .cabecera {
+        margin: auto;
+        margin-top: 7.5%;
+      }
+
+      hr {
+        color: #000;
+        font-size: 20px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row header">
+        <div class="col-6 one">
+          <img src="/home/skyadrum/Documents/Projects/Django/HRMS/staticfiles/img/django.png" style="height: 95px; width: 300px;">
+        </div>
+        <div class="col-6 two text-center">
+          <div class="cabecera">
+            <p>Historico de Bajas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br><br>
+
+    <!-- <div class="container">
+      <div class="row header">
+        <div class="col-6">
+          {% for item in personas %}
+            <h5>Área: {{item.areas.nombre_area}}</h5><br>
+            <h5>Clave del Área: {{item.areas.clave_area}}</h5> <br>
+          {% endfor %}
+        </div>
+      </div>
+    </div> -->
+
+    <br>
+
+    <div class="container">
+      <div class="text-center" style="background: #000; color: #fff; margin-top: 2.5%; padding: .3%;">
+        <h3>Detalle de Personal Inactivo</h3>
+      </div>
+
+      <br>
+
+      <div class="container text-center">
+        <table class="table table-bordered" style="width:100%;">
+          <thead align="center">
+              <tr>
+                <td align="center"><b>Clave</b></td>
+                <td align="center"><b>Nombre</b></td>
+                <td align="center"><b>Area</b></td>
+                <td align="center"><b>Fecha de Ingreso</b></td>
+                <td align="center"><b>Fecha de Baja</b></td>
+                <td align="center"><b>Motivo de Baja</b></td>
+              </tr>
+          </thead>
+          <tbody>
+            {% for item in personas %}
+              <tr>
+                <td class="align-middle">{{item.id_persona}}</td>
+                <td class="align-middle">{{item.nombre}} {{item.apellido_paterno}} {{item.apellido_materno}}</td>
+                <td class="align-middle">{{item.areas.nombre_area}}</td>
+                <td class="align-middle">{{item.fecha_ingreso}}</td>
+                <td class="align-middle">{{item.fecha_baja}}</td>
+                <td class="align-middle">{{item.motivo_baja}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <br><br>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <div class="text-center">
+              <h6>ELABORA</h6>
+              <br><br>
+
+              <hr>
+
+              <span>ÁREA</span> <br>
+              <span>Nombre y Firma</span>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="text-center">
+              <h6>Vo. Bo</h6>
+              <br><br>
+
+              <hr>
+
+              <span>Direccion de Recurso Humanos</span> <br>
+              <span>Nombre y Firma</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </body>
+</html>

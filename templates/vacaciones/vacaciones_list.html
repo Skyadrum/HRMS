@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block breadcrumb %}
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="#">Listados</a>
+  </li>
+  <li class="breadcrumb-item active">Vacaciones Solicitadas</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="card mb-3">
+  <div class="card-header row">
+    <div class="col-md-6"><i class="fa fa-table"></i> Listado de Vacaciones Solicitadas</div>
+
+    <div class="col-md-6 offset-md-6"><i class="fa fa-file-pdf-o" aria-hidden="true"></i><a href="{% url 'vacaciones:vacaciones_historial' %}"> Exportar a PDF</a></span></div>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      {% if not object_list %}
+      <h4>No hay empleados registrados</h4>
+      {% else  %}
+      <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Id Persona</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Fecha de Inicio</th>
+            <th>Dias Tomados</th>
+            <th>Días Totales</th>
+            <th>Dias Restantes</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for item in object_list %}
+          <tr>
+            <td>{{item.personas.id_persona}}</td>
+            <td>{{item.personas.nombre}}</td>
+            <td>{{item.personas.apellido_paterno}} {{item.personas.apellido_materno}}</td>
+            <td>{{item.fecha_inicio}}</td>
+            <td>{{item.dias_tomados}}</td>
+            <td>{{item.dias_vacaciones}}</td>
+            <td>{{item.dias_restantes}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
