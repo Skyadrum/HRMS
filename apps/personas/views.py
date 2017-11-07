@@ -142,6 +142,17 @@ def PersonaFormato(request, pk):
 
     return response
 
+def PersonaFormatoBaja(request, pk):
+    personas = Persona.objects.all().filter(id=pk)
+    rendered = render_to_string('formatos/formato_baja.html', {'personas':personas})
+    # Create a URL of our project and go to the template route
+    pdf = pdfkit.from_string(rendered, False)
+    # Generate download
+    response = HttpResponse(pdf, content_type='application/pdf')
+    # response['Content-Disposition'] = 'attachment; filename="ourcodeworld.pdf"'
+
+    return response
+
 def PersonaVacacionesHist(request, pk):
     vacaciones = Vacaciones.objects.all().filter(id_solicitante=pk)
     personas = Persona.objects.all().filter(id=pk)

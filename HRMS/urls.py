@@ -26,7 +26,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', login, {'template_name':'index.html'}, name='login'),
-    # url(r'^accounts/login/', login, {'template_name':'index.html'}, name='login'),
+    url(r'^logout/', logout_then_login, name='logout'),
+    url(r'^accounts/login/', login, {'template_name':'index.html'}, name='login'),
     url(r'^personas/', include('apps.personas.urls', namespace='personas')),
     url(r'^areas/', include('apps.areas.urls', namespace='areas')),
     url(r'^vacaciones/', include('apps.vacaciones.urls', namespace='vacaciones')),

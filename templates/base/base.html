@@ -9,7 +9,7 @@
     <meta name="author" content="">
 
     {% block title %}
-    <title>SB Admin - Start Bootstrap Template</title>
+    <title>HRMS</title>
     {% endblock %}
 
     {% block estilos %}
@@ -177,11 +177,11 @@
             </button>
           </div>
           <div class="modal-body">
-            Select "Logout" below if you are ready to end your current session.
+            Presiona "Salir" si estas seguro de querer cerrar tu sesión actual.
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" href="{% url 'logout' %}">Salir</a> <!-- login.html -->
           </div>
         </div>
       </div>

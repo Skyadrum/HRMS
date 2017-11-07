@@ -32,6 +32,7 @@
             <th>Fecha de Ingreso</th>
             <th>Fecha de Baja</th>
             <th>Estatus</th>
+            <th>Exportar a PDF</th>
           </tr>
         </thead>
 
@@ -44,6 +45,7 @@
             <td>{{item.fecha_ingreso}}</td>
             <td>{{item.fecha_baja}}</td>
             <td>{{item.activo}}</td>
+            <td><a href="{% url 'personas:persona_formato_baja' item.id %}" class="btn btn-success">Formato</a></td>
           </tr>
           {% endfor %}
         </tbody>

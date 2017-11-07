@@ -56,7 +56,7 @@ class PermisosForm(forms.ModelForm):
         widgets = {
             'dias_tomados': forms.TextInput(attrs={'class':'form-control'}),
             'fecha_inicio': forms.TextInput(attrs={'class':'form-control'}),
-            'tipos': forms.Select(attrs={'class':'form-control'}),
+            'tipo': forms.Select(attrs={'class':'form-control'}),
             'observaciones': forms.TextInput(attrs={'class':'form-control'}),
             'id_solicitante': forms.TextInput(attrs={'class':'form-control'}),
         }
